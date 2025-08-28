@@ -7,7 +7,8 @@ import { sanityConfig } from './lib/sanity.env'
 export default defineConfig({
   name: 'default',
   title: 'Hulenderen 3.0',
-  ...sanityConfig,
+  projectId: "ymr0rdxh",
+  dataset: "production",
   plugins: [structureTool(), visionTool()],
   schema: {
     types: schemaTypes,
