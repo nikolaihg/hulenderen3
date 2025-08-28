@@ -10,7 +10,7 @@ export default async function CalendarPage() {
   if (!session) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <h1>You are not authorized. Please <a href="/login" className="text-blue-500 underline">login</a>.</h1>
+        <h1>You are not authorized. Please <a href="/" className="text-blue-500 underline">login</a>.</h1>
       </div>
     );
   }
