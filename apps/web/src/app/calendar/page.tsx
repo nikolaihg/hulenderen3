@@ -1,13 +1,18 @@
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../api/auth/[...nextauth]/authOptions";
-import { sanityClient } from "../lib/sanity"; 
+import { sanityClient } from "../lib/sanity";
 import Calendar from "../components/Calendar";
-import Link from 'next/link'
+import Link from 'next/link';
 
+interface SanityEvent {
+  title: string;
+  startDate: string;
+  endDate: string;
+}
 
 export default async function CalendarPage() {
   const session = await getServerSession(authOptions);
-
+  
   if (!session) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -22,9 +27,9 @@ export default async function CalendarPage() {
     endDate
   }`;
 
-  const sanityEvents = await sanityClient.fetch(query);
-
-  const events = sanityEvents.map((e: any) => ({
+  const sanityEvents: SanityEvent[] = await sanityClient.fetch(query);
+  
+  const events = sanityEvents.map((e: SanityEvent) => ({
     title: e.title,
     start: new Date(e.startDate),
     end: new Date(e.endDate),
