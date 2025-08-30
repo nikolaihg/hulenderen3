@@ -13,6 +13,7 @@ Calendar in next.js with sanity cms for events, hopefully it can be integrated i
 - `tailwindcss: "^4.1.12"`
 - `typescript: "^5"`
 - `turbo: "2.5.7"`
+
 ## Build 
 ### Dev scripts
 - pnpm copy-envs":  "cp .env apps/web/.env && cp .env apps/studio/.env",
